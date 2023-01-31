@@ -40,7 +40,10 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+        		.csrf()
+        		.disable()
+        		.authorizeHttpRequests()
         		.requestMatchers("/authenticated")
         		.permitAll()
                 .anyRequest()
@@ -61,8 +64,8 @@ public class SecurityConfig {
 		// TODO Auto-generated method stub
     	DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
     	authenticationProvider.setUserDetailsService(userDetailsService());
-//    	authenticationProvider.setPasswordEncoder(passwordEncoder());
-		return authenticationProvider();
+    	authenticationProvider.setPasswordEncoder(passwordEncoder());
+		return authenticationProvider;
 	}
 
 	@Bean

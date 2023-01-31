@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Component
 public class JwtRequest {
 	
 	private String username;
@@ -23,12 +22,4 @@ public class JwtRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public JwtRequest(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
-	
-	
-
 }
